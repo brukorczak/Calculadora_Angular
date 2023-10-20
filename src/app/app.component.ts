@@ -7,4 +7,33 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'calculadora';
+  stringToEvaluate:string=""
+
+  //entrada- %-+/-
+  takeInput(num:string){
+    if(num === '+/-'){
+      if(this.stringToEvaluate.includes('-')){
+        this.stringToEvaluate = this.stringToEvaluate.replace('-', '');
+      }else{
+        this.stringToEvaluate = "-", this.stringToEvaluate;
+      }
+    }else if(num === '%'){
+        const result = eval(this.stringToEvaluate);
+        this.stringToEvaluate = (result / 100).toString();
+    }else{
+      this.stringToEvaluate = this.stringToEvaluate + num;
+    }
+  }
+
+  //resultados
+  evalResult(){
+    if(this.stringToEvaluate != ''){
+      this.stringToEvaluate = eval(this.stringToEvaluate);
+    }
+  }
+
+  //AC
+  resetInput(){
+    this.stringToEvaluate = '';
+  }
 }
