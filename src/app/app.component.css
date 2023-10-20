@@ -22,6 +22,7 @@
   padding-block-end: 0.5rem;
   font-weight: 600;
   line-height: normal;
+  overflow-x: auto;
 }
 
 .calculatorAlls {
