@@ -28,7 +28,12 @@ export class AppComponent {
   //resultados
   evalResult(){
     if(this.stringToEvaluate != ''){
-      this.stringToEvaluate = eval(this.stringToEvaluate);
+      const result = eval(this.stringToEvaluate);
+        if (isFinite(result)) {
+          this.stringToEvaluate = result.toString();
+        } else {
+          alert('Resultado infinito. Verifique sua entrada!');
+        }
     }
   }
 
